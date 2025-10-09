@@ -1,0 +1,28 @@
+# Dependencies
+node_modules
+
+# Build outputs
+dist
+.angular
+
+# Development files
+.vscode
+.qodo
+
+# Testing
+coverage
+*.spec.ts
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
