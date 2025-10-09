@@ -1,0 +1,127 @@
+<div id="about-section" class="about-container">
+  <!-- Título Principal -->
+  <div class="main-title">
+    <h1 class="title-text">
+      Sobre a <span class="brand-emba">Emba</span><span class="brand-class">Class</span>
+    </h1>
+    <p class="title-subtitle">
+      Transformando ideias em embalagens com classe há mais de duas décadas
+    </p>
+  </div>
+
+  <!-- Grid Principal -->
+  <div class="main-grid">
+    <!-- Seção de Conteúdo -->
+    <div class="content-section">
+      <div class="content-card">
+        <p class="content-text">
+          Há <span class="highlight-primary">28 anos</span>, a EmbaClass desenvolve e fabrica 
+          embalagens plásticas para os mercados de cosméticos, farmacêutico, higiene e limpeza, 
+          automotivo, químico e alimentício.
+        </p>
+        
+        <p class="content-text">
+          Instalada em <span class="highlight-secondary">Barueri–SP</span>, opera 24 horas com 
+          foco em inovação, novas matérias‑primas e processos de qualidade rigorosos.
+        </p>
+        
+        <p class="content-text">
+          Trabalhamos como <span class="highlight-primary">parceiros</span> em cada etapa do 
+          projeto para transformar ideias em embalagens com classe, sempre priorizando a 
+          sustentabilidade e a excelência em cada produto desenvolvido.
+        </p>
+
+        <!-- Mini estatísticas inline -->
+        <div style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; font-weight: 800; color: #2e3996;">28+</div>
+            <div style="font-size: 0.9rem; color: #64748b;">Anos</div>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; font-weight: 800; color: #f57815;">6</div>
+            <div style="font-size: 0.9rem; color: #64748b;">Segmentos</div>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; font-weight: 800; color: #2e3996;">24h</div>
+            <div style="font-size: 0.9rem; color: #64748b;">Operação</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção de Características -->
+    <div class="features-section">
+      <div class="features-grid">
+        <div 
+          *ngFor="let feature of features; let i = index" 
+          class="feature-card animate-stagger-{{i + 1}}"
+          [ngClass]="getColorClass(feature.color)"
+        >
+          <span class="feature-icon">{{ feature.icon }}</span>
+          <h3 class="feature-title">{{ feature.title }}</h3>
+          <p class="feature-description">{{ feature.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção de Estatísticas -->
+  <div class="stats-section" *ngIf="isVisible">
+    <div class="stats-grid">
+      <div class="stat-item" *ngFor="let stat of stats">
+        <span class="stat-number">{{ stat.number }}{{ stat.suffix }}</span>
+        <span class="stat-label">{{ stat.label }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção de Valores -->
+  <div class="values-section">
+    <h2 class="section-title">Nossos Valores</h2>
+    <div class="values-grid">
+      <div 
+        *ngFor="let value of values; let i = index" 
+        class="value-tag"
+        [ngClass]="getValueClass(i)"
+      >
+        {{ value }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção de Segmentos -->
+  <div class="segments-section">
+    <h2 class="section-title">Segmentos Atendidos</h2>
+    <div class="segments-grid">
+      <div class="segment-card" *ngFor="let segment of segments">
+        <span class="segment-icon">{{ segment.icon }}</span>
+        <span class="segment-name">{{ segment.name }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção de Compromisso -->
+  <div style="text-align: center; margin-top: 6rem; padding: 4rem 2rem; background: linear-gradient(135deg, rgba(46, 57, 150, 0.05) 0%, rgba(245, 120, 21, 0.05) 100%); border-radius: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+    <h3 style="font-size: 2rem; font-weight: 700; color: #1e293b; margin-bottom: 1.5rem;">
+      Nosso Compromisso
+    </h3>
+    <p style="font-size: 1.25rem; color: #64748b; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+      Estamos comprometidos em oferecer soluções inovadoras e sustentáveis, 
+      mantendo os mais altos padrões de qualidade e atendimento personalizado. 
+      Cada projeto é uma oportunidade de superar expectativas e criar valor duradouro.
+    </p>
+    
+    <!-- Badges de certificação -->
+    <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+      <div style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 0.75rem 1.5rem; border-radius: 2rem; font-weight: 600; font-size: 0.9rem;">
+        ✓ ISO 9001 Certificado
+      </div>
+      <div style="background: linear-gradient(135deg, #2e3996, #4f46e5); color: white; padding: 0.75rem 1.5rem; border-radius: 2rem; font-weight: 600; font-size: 0.9rem;">
+        ✓ Processos Sustentáveis
+      </div>
+      <div style="background: linear-gradient(135deg, #f57815, #ea580c); color: white; padding: 0.75rem 1.5rem; border-radius: 2rem; font-weight: 600; font-size: 0.9rem;">
+        ✓ Inovação Contínua
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,115 @@
+<div class="banner-container" [class.content-ready]="isContentReady">
+  <!-- Elementos flutuantes decorativos -->
+  <div class="floating-elements">
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+  </div>
+
+  <!-- Grid principal -->
+  <div class="banner-grid">
+    <!-- Coluna de conteúdo -->
+    <div class="content-column" [class.ready]="isContentReady">
+      <!-- Título principal -->
+      <h1 class="main-title" style="color: white;">
+        Um toque de 
+        <span class="title-highlight">classe</span> 
+        para o seu produto
+      </h1>
+
+      <!-- Subtítulo -->
+      <p class="subtitle" style="color: white;">
+        Há 28 anos desenvolvendo embalagens plásticas inovadoras para diversos segmentos, 
+        transformando ideias em soluções sustentáveis e de alta qualidade.
+      </p>
+
+      <!-- Estatísticas animadas -->
+      <div class="stats-container" *ngIf="isVisible">
+        <div class="stat-item" *ngFor="let stat of animatedStats; let i = index">
+          <span class="stat-number">{{ stat.current }}{{ stat.suffix }}</span>
+          <span class="stat-label">{{ stats[i].label }}</span>
+        </div>
+      </div>
+
+      <!-- Botões de call-to-action -->
+      <div class="cta-container">
+        <button class="cta-primary" (click)="goToContact()">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+          </svg>
+          Fale Conosco
+        </button>
+        
+        <button class="cta-secondary" (click)="goToProducts()">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+          </svg>
+          Nossos Produtos
+        </button>
+      </div>
+
+      <!-- Badges de qualidade -->
+      <div class="quality-badges">
+        <div class="quality-badge">
+          ✓ ISO 9001 Certificado
+        </div>
+        <div class="quality-badge">
+          ✓ Sustentabilidade
+        </div>
+        <div class="quality-badge">
+          ✓ Inovação Constante
+        </div>
+      </div>
+    </div>
+
+    <!-- Coluna da imagem -->
+    <div class="image-column" [class.ready]="isContentReady">
+      <div class="image-container">
+        <!-- Elementos decorativos -->
+        <div class="image-decoration decoration-1"></div>
+        <div class="image-decoration decoration-2"></div>
+        <div class="image-decoration decoration-3"></div>
+        
+        <!-- Imagem principal -->
+        <img 
+          src="embalagens.png" 
+          alt="Embalagens plásticas inovadoras da EmbaClass - 28 anos de experiência em soluções sustentáveis" 
+          class="banner-image"
+          loading="eager"
+        />
+        
+        <!-- Card flutuante com informação adicional -->
+        <div style="position: absolute; bottom: 2rem; left: 2rem; background: rgba(255, 255, 255, 0.95); padding: 1.5rem; border-radius: 1rem; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); backdrop-filter: blur(10px); max-width: 250px;">
+          <h3 style="color: #2e3996; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem;">
+            Soluções Personalizadas
+          </h3>
+          <p style="color: #64748b; font-size: 0.9rem; line-height: 1.4; margin: 0;">
+            Desenvolvemos embalagens sob medida para atender às necessidades específicas do seu negócio.
+          </p>
+          <div style="margin-top: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></div>
+            <span style="color: #10b981; font-size: 0.8rem; font-weight: 600;">Disponível agora</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Indicador de rolagem -->
+  <div class="scroll-indicator" (click)="scrollToNext()">
+    <span class="scroll-text">Descubra mais</span>
+    <svg class="scroll-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+    </svg>
+  </div>
+
+  <!-- Elementos decorativos adicionais -->
+  <div style="position: absolute; top: 10%; right: 10%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(245, 120, 21, 0.1) 0%, transparent 70%); border-radius: 50%; pointer-events: none; animation: pulse 4s ease-in-out infinite;"></div>
+  
+  <div style="position: absolute; bottom: 20%; left: 5%; width: 150px; height: 150px; background: radial-gradient(circle, rgba(46, 57, 150, 0.1) 0%, transparent 70%); border-radius: 50%; pointer-events: none; animation: float 5s ease-in-out infinite;"></div>
+
+  <!-- Padrão geométrico sutil -->
+  <div class="geometric-pattern"></div>
+</div>
