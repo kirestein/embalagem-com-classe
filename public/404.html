@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecionando…</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      var l = window.location;
+      var redirect = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/?/' +
+        l.pathname.replace(/^\/+/, '') + (l.search ? l.search.replace(/&/g, '~and~') : '') + l.hash;
+      l.replace(redirect);
+    })();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=/" />
+  </noscript>
+</head>
+<body>
+  Redirecionando…
+</body>
+</html>
