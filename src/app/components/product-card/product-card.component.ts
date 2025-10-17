@@ -14,12 +14,10 @@ export class ProductCardComponent {
   @Input() showCategory: boolean = true;
 
   onImageError(event: any) {
-    // Fallback para imagem padrão se a imagem não carregar
     event.target.src = 'assets/images/placeholder-product.svg';
   }
 
   onProductClick() {
-    // Aqui podemos implementar navegação para detalhes do produto
     console.log('Produto clicado:', this.product);
   }
 }

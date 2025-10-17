@@ -9,7 +9,7 @@
       (error)="onImageError($event)"
       class="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-300 p-4">
     
-    <!-- Badge da Categoria (se showCategory for true) -->
+    <!-- Badge da Categoria -->
     <div *ngIf="showCategory && product?.category" 
          class="absolute top-2 left-2 bg-blue-600 text-white text-xs px-2 py-1 rounded-full">
       {{ product.category }}

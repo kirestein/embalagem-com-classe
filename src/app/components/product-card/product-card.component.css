@@ -6,7 +6,6 @@
   transform: translateY(-2px);
 }
 
-/* Utilitário para limitar texto a 2 linhas */
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -14,23 +13,16 @@
   overflow: hidden;
 }
 
-/* Animação suave para a imagem */
 .product-card img {
   transition: transform 0.3s ease;
 }
 
-/* Estilo para o badge da categoria */
-.product-card .absolute {
-  backdrop-filter: blur(4px);
-}
-
-/* Responsividade */
 @media (max-width: 640px) {
   .product-card {
     margin-bottom: 1rem;
   }
   
   .product-card img {
-    height: 12rem; /* h-48 = 12rem */
+    height: 12rem;
   }
 }
