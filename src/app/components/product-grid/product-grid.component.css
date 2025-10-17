@@ -1,0 +1,74 @@
+/* Grid responsivo com gaps consistentes */
+.product-grid-item {
+  transition: all 0.3s ease;
+}
+
+/* Animação de entrada para os produtos */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-grid-item {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Delay escalonado para animação */
+.product-grid-item:nth-child(1) { animation-delay: 0.1s; }
+.product-grid-item:nth-child(2) { animation-delay: 0.2s; }
+.product-grid-item:nth-child(3) { animation-delay: 0.3s; }
+.product-grid-item:nth-child(4) { animation-delay: 0.4s; }
+.product-grid-item:nth-child(5) { animation-delay: 0.5s; }
+.product-grid-item:nth-child(6) { animation-delay: 0.6s; }
+.product-grid-item:nth-child(7) { animation-delay: 0.7s; }
+.product-grid-item:nth-child(8) { animation-delay: 0.8s; }
+
+/* Loading skeleton animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Responsividade aprimorada */
+@media (max-width: 640px) {
+  /* Em mobile, usar grid de 1 coluna com espaçamento menor */
+  .grid {
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  /* Em tablet, usar grid de 2 colunas */
+  .grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Em desktop, usar grid completo */
+  .grid {
+    gap: 1.5rem;
+  }
+}
+
+/* Estilo para o estado vazio */
+.empty-state {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

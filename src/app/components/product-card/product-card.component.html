@@ -1,0 +1,50 @@
+<div class="product-card bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden cursor-pointer group"
+     (click)="onProductClick()">
+  
+  <!-- Imagem do Produto -->
+  <div class="relative overflow-hidden bg-gray-50">
+    <img 
+      [src]="product?.images?.[0] || 'assets/images/placeholder-product.svg'" 
+      [alt]="product?.name || 'Produto'"
+      (error)="onImageError($event)"
+      class="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-300 p-4">
+    
+    <!-- Badge da Categoria (se showCategory for true) -->
+    <div *ngIf="showCategory && product?.category" 
+         class="absolute top-2 left-2 bg-blue-600 text-white text-xs px-2 py-1 rounded-full">
+      {{ product.category }}
+    </div>
+  </div>
+
+  <!-- Conteúdo do Card -->
+  <div class="p-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
+      {{ product?.name || 'Produto sem nome' }}
+    </h3>
+    
+    <p *ngIf="product?.description" 
+       class="text-gray-600 text-sm mb-3 line-clamp-2">
+      {{ product.description }}
+    </p>
+
+    <!-- Botão de Ação -->
+    <div class="flex justify-between items-center">
+      <span class="text-blue-600 font-medium text-sm">
+        {{ expandable && hasDetails ? (isExpanded ? 'Ocultar detalhes' : 'Ver detalhes') : 'Ver detalhes' }}
+      </span>
+      <svg class="w-4 h-4 text-blue-600 transition-transform" 
+           [class.rotate-90]="expandable && isExpanded"
+           [class.group-hover:translate-x-1]="!expandable"
+           fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+              d="M9 5l7 7-7 7"></path>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Seção Expandida com Especificações -->
+  <div *ngIf="expandable && isExpanded && hasDetails" 
+       class="expanded-content border-t border-gray-100 mt-4 pt-4">
+    <app-product-specifications [product]="product"></app-product-specifications>
+  </div>
+</div>

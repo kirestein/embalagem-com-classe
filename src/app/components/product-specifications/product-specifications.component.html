@@ -1,0 +1,66 @@
+<div *ngIf="hasAnyDetails" class="product-specifications bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+  <!-- Especificações Técnicas -->
+  <div *ngIf="hasSpecifications" class="specifications-section mb-8">
+    <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+      <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+      </svg>
+      Especificações Técnicas
+    </h3>
+    
+    <div class="specifications-grid grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div 
+        *ngFor="let spec of product?.specifications" 
+        class="specification-item bg-gray-50 rounded-lg p-4">
+        <div class="flex justify-between items-center">
+          <span class="text-sm font-medium text-gray-600">{{ spec.name }}</span>
+          <span class="text-sm font-semibold text-gray-900">
+            {{ spec.value }}{{ spec.unit ? ' ' + spec.unit : '' }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Características -->
+  <div *ngIf="hasFeatures" class="features-section mb-8">
+    <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+      <svg class="w-5 h-5 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      Características
+    </h3>
+    
+    <div class="features-grid grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div 
+        *ngFor="let feature of product?.features" 
+        class="feature-item flex items-center p-3 bg-green-50 rounded-lg">
+        <svg class="w-4 h-4 mr-3 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+        </svg>
+        <span class="text-sm text-gray-700">{{ feature }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aplicações -->
+  <div *ngIf="hasApplications" class="applications-section">
+    <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+      <svg class="w-5 h-5 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+      </svg>
+      Aplicações
+    </h3>
+    
+    <div class="applications-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+      <div 
+        *ngFor="let application of product?.applications" 
+        class="application-item flex items-center p-3 bg-purple-50 rounded-lg">
+        <svg class="w-4 h-4 mr-3 text-purple-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        </svg>
+        <span class="text-sm text-gray-700">{{ application }}</span>
+      </div>
+    </div>
+  </div>
+</div>

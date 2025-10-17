@@ -1,0 +1,53 @@
+<!-- Loading State -->
+<div *ngIf="loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+  <div *ngFor="let item of [1,2,3,4,5,6,7,8]" class="animate-pulse">
+    <div class="bg-gray-200 rounded-lg h-64 mb-4"></div>
+    <div class="bg-gray-200 h-4 rounded mb-2"></div>
+    <div class="bg-gray-200 h-3 rounded w-3/4"></div>
+  </div>
+</div>
+
+<!-- Products Grid -->
+<div *ngIf="!loading && hasProducts" 
+     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+  <app-product-card 
+    *ngFor="let product of products; trackBy: trackByProductId"
+    [product]="product"
+    [showCategory]="showCategory"
+    class="product-grid-item">
+  </app-product-card>
+</div>
+
+<!-- Empty State -->
+<div *ngIf="!loading && !hasProducts" 
+     class="text-center py-12">
+  <div class="max-w-md mx-auto">
+    <!-- Ícone de produto vazio -->
+    <svg class="mx-auto h-16 w-16 text-gray-400 mb-4" 
+         fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" 
+            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+    </svg>
+    
+    <h3 class="text-lg font-medium text-gray-900 mb-2">
+      Nenhum produto encontrado
+    </h3>
+    
+    <p class="text-gray-500 mb-6">
+      Não encontramos produtos para os filtros selecionados. 
+      Tente ajustar os filtros ou navegue por outras categorias.
+    </p>
+    
+    <button 
+      class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+      onclick="window.location.reload()">
+      Limpar Filtros
+    </button>
+  </div>
+</div>
+
+<!-- Contador de produtos -->
+<div *ngIf="!loading && hasProducts" 
+     class="mt-8 text-center text-sm text-gray-600">
+  Mostrando {{ products.length }} produto{{ products.length !== 1 ? 's' : '' }}
+</div>
