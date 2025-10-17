@@ -1,0 +1,64 @@
+.product-card {
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Utilitário para limitar texto a 2 linhas */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Animação suave para a imagem */
+.product-card img {
+  transition: transform 0.3s ease;
+}
+
+/* Estilo para o badge da categoria */
+.product-card .absolute {
+  backdrop-filter: blur(4px);
+}
+
+/* Animação para seção expandida */
+.expanded-content {
+  animation: slideDown 0.3s ease-out;
+  overflow: hidden;
+}
+
+@keyframes slideDown {
+  from {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Rotação da seta */
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+  .product-card {
+    margin-bottom: 1rem;
+  }
+  
+  .product-card img {
+    height: 12rem; /* h-48 = 12rem */
+  }
+  
+  .expanded-content {
+    padding: 0.75rem;
+  }
+}

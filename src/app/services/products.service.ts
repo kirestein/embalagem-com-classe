@@ -19,7 +19,20 @@ export class ProductsService {
           name: 'Bisnaga Padrão',
           category: 'bisnagas',
           slug: 'bisnaga-padrao',
-          images: ['products/bisnagas/Bisnagas.png']
+          description: 'Bisnaga flexível ideal para produtos cosméticos e farmacêuticos',
+          images: ['products/bisnagas/Bisnagas.png'],
+          features: [
+            'Material flexível e resistente',
+            'Tampa rosqueável',
+            'Fácil aplicação do produto',
+            'Disponível em várias cores'
+          ],
+          applications: [
+            'Produtos cosméticos',
+            'Medicamentos tópicos',
+            'Cremes e pomadas',
+            'Produtos de higiene'
+          ]
         }
       ]
     },
@@ -207,7 +220,25 @@ export class ProductsService {
           name: 'Pulverizador Padrão',
           category: 'pulverizadores',
           slug: 'pulverizador-padrao',
-          images: ['products/pulverizadores/pulverizador.png']
+          description: 'Sistema de pulverização eficiente para produtos líquidos',
+          images: ['products/pulverizadores/pulverizador.png'],
+          features: [
+            'Gatilho ergonômico',
+            'Bico ajustável',
+            'Sistema anti-vazamento',
+            'Fácil recarga'
+          ],
+          applications: [
+            'Produtos de limpeza',
+            'Cosméticos em spray',
+            'Produtos de jardim',
+            'Soluções desinfetantes'
+          ],
+          specifications: [
+            { name: 'Capacidade', value: '500', unit: 'ml' },
+            { name: 'Material', value: 'PP/PE' },
+            { name: 'Rosca', value: '28/410' }
+          ]
         }
       ]
     },
