@@ -3,6 +3,8 @@ import { Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { ProductsService } from '../../services/products.service';
+import { ProductCategory } from '../../models/product.model';
 
 @Component({
   selector: 'app-header',
@@ -17,19 +19,28 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isMobileMenuOpen = false;
   isScrolled = false;
   activeSection = 'home';
+  isProductsDropdownOpen = false;
+  productCategories: ProductCategory[] = [];
   private routerSubscription!: Subscription;
 
-  constructor(public router: Router) {}
+  constructor(
+    public router: Router,
+    private productsService: ProductsService
+  ) {}
 
   ngOnInit() {
     // Detectar scroll para efeitos visuais
     this.checkScroll();
+    
+    // Carregar categorias de produtos
+    this.productCategories = this.productsService.getProductCategories();
     
     // Detectar mudanças de rota
     this.routerSubscription = this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
         this.updateActiveSection();
+        this.closeProductsDropdown();
       });
     
     // Inicializar seção ativa
@@ -174,6 +185,21 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return this.activeSection === 'contact';
   }
 
+  // Controle do dropdown de produtos
+  toggleProductsDropdown() {
+    this.isProductsDropdownOpen = !this.isProductsDropdownOpen;
+  }
+
+  closeProductsDropdown() {
+    this.isProductsDropdownOpen = false;
+  }
+
+  navigateToCategory(categorySlug: string) {
+    this.router.navigate(['/products', categorySlug]);
+    this.closeProductsDropdown();
+    this.closeMobileMenu();
+  }
+
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: Event) {
     // Fechar menu mobile ao clicar fora
@@ -182,6 +208,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
       if (!this.mobileMenu.nativeElement.contains(target)) {
         this.closeMobileMenu();
       }
+    }
+    
+    // Fechar dropdown de produtos ao clicar fora
+    const target = event.target as HTMLElement;
+    const productsDropdown = document.querySelector('.products-dropdown');
+    const productsButton = document.querySelector('.products-nav-button');
+    
+    if (this.isProductsDropdownOpen && 
+        productsDropdown && 
+        productsButton &&
+        !productsDropdown.contains(target) && 
+        !productsButton.contains(target)) {
+      this.closeProductsDropdown();
     }
   }
 }

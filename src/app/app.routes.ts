@@ -11,4 +11,12 @@ export const routes: Routes = [
     path: 'products',
     component: ProductsPageComponent,
   },
+  {
+    path: 'products/:category',
+    component: ProductsPageComponent,
+  },
+  {
+    path: '**',
+    redirectTo: '',
+  },
 ];

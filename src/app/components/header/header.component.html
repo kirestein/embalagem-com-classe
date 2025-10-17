@@ -66,10 +66,10 @@
           </button>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item products-dropdown-container">
           <button
-            class="nav-link"
-            (click)="navigateToProducts()"
+            class="nav-link products-nav-button"
+            (click)="toggleProductsDropdown()"
             [class.active]="isProductsActive()"
           >
             <svg
@@ -86,7 +86,57 @@
               />
             </svg>
             <span>Produtos</span>
+            <svg
+              class="dropdown-arrow"
+              [class.rotated]="isProductsDropdownOpen"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
           </button>
+          
+          <!-- Dropdown Menu -->
+          <div 
+            class="products-dropdown"
+            [class.open]="isProductsDropdownOpen"
+          >
+            <div class="dropdown-header">
+              <h3>Nossas Categorias</h3>
+              <button 
+                class="view-all-btn"
+                (click)="navigateToProducts()"
+              >
+                Ver Todos
+              </button>
+            </div>
+            
+            <div class="dropdown-grid">
+              <div 
+                *ngFor="let category of productCategories" 
+                class="dropdown-item"
+                (click)="navigateToCategory(category.slug)"
+              >
+                <div class="item-image">
+                  <img 
+                    [src]="category.image" 
+                    [alt]="category.name"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="item-content">
+                  <h4>{{ category.name }}</h4>
+                  <p>{{ category.description }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </li>
 
         <li class="nav-item">
@@ -223,10 +273,10 @@
             </button>
           </li>
 
-          <li class="mobile-nav-item">
+          <li class="mobile-nav-item mobile-products-item">
             <button
               class="mobile-nav-link"
-              (click)="navigateToProducts()"
+              (click)="toggleProductsDropdown()"
               [class.active]="isProductsActive()"
             >
               <svg
@@ -245,6 +295,7 @@
               <span>Produtos</span>
               <svg
                 class="mobile-nav-arrow"
+                [class.rotated]="isProductsDropdownOpen"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -253,10 +304,45 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M9 5l7 7-7 7"
+                  d="M19 9l-7 7-7-7"
                 />
               </svg>
             </button>
+            
+            <!-- Mobile Products Submenu -->
+            <div 
+              class="mobile-submenu"
+              [class.open]="isProductsDropdownOpen"
+            >
+              <div class="mobile-submenu-header">
+                <button 
+                  class="mobile-view-all"
+                  (click)="navigateToProducts()"
+                >
+                  Ver Todas as Categorias
+                </button>
+              </div>
+              
+              <div class="mobile-submenu-items">
+                <button 
+                  *ngFor="let category of productCategories"
+                  class="mobile-submenu-item"
+                  (click)="navigateToCategory(category.slug)"
+                >
+                  <div class="mobile-item-image">
+                    <img 
+                      [src]="category.image" 
+                      [alt]="category.name"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="mobile-item-content">
+                    <span class="mobile-item-name">{{ category.name }}</span>
+                    <span class="mobile-item-desc">{{ category.description }}</span>
+                  </div>
+                </button>
+              </div>
+            </div>
           </li>
 
           <li class="mobile-nav-item">
