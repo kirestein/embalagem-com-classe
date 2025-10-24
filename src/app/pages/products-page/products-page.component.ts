@@ -36,7 +36,6 @@ export class ProductsPageComponent implements OnInit {
   private loadProducts() {
     this.loading = true;
     
-    // Simular um pequeno delay para mostrar o loading
     setTimeout(() => {
       this.categories = this.productsService.getProductCategories();
       this.allProducts = this.getAllProductsFromCategories();
@@ -57,10 +56,8 @@ export class ProductsPageComponent implements OnInit {
     this.selectedCategory = categoryId;
     
     if (categoryId === null) {
-      // Mostrar todos os produtos
       this.filteredProducts = [...this.allProducts];
     } else {
-      // Filtrar produtos da categoria selecionada
       const category = this.categories.find(cat => cat.id === categoryId);
       this.filteredProducts = category ? [...category.products] : [];
     }
