@@ -1,6 +1,8 @@
+
 .product-grid-item {
   transition: all 0.3s ease;
 }
+
 
 @keyframes fadeInUp {
   from {
@@ -16,6 +18,7 @@
 .product-grid-item {
   animation: fadeInUp 0.5s ease forwards;
 }
+
 
 .product-grid-item:nth-child(1) { animation-delay: 0.1s; }
 .product-grid-item:nth-child(2) { animation-delay: 0.2s; }

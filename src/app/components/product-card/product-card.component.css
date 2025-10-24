@@ -6,6 +6,7 @@
   transform: translateY(-2px);
 }
 
+
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -13,9 +14,11 @@
   overflow: hidden;
 }
 
+
 .product-card img {
   transition: transform 0.3s ease;
 }
+
 
 @media (max-width: 640px) {
   .product-card {
@@ -23,6 +26,8 @@
   }
   
   .product-card img {
+
     height: 12rem;
+
   }
 }

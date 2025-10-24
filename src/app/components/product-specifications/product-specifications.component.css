@@ -1,0 +1,160 @@
+/* Estilos para o componente de especificações */
+
+.product-specifications {
+  transition: all 0.3s ease;
+}
+
+.product-specifications:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Seções */
+.specifications-section,
+.features-section,
+.applications-section {
+  position: relative;
+}
+
+.specifications-section::after,
+.features-section::after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+}
+
+/* Grid de especificações */
+.specifications-grid .specification-item {
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.specifications-grid .specification-item:hover {
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Grid de características */
+.features-grid .feature-item {
+  transition: all 0.2s ease;
+  border: 1px solid #bbf7d0;
+}
+
+.features-grid .feature-item:hover {
+  background-color: #dcfce7;
+  transform: translateY(-1px);
+}
+
+/* Grid de aplicações */
+.applications-grid .application-item {
+  transition: all 0.2s ease;
+  border: 1px solid #e9d5ff;
+}
+
+.applications-grid .application-item:hover {
+  background-color: #f3e8ff;
+  transform: translateY(-1px);
+}
+
+/* Ícones */
+.specifications-section svg,
+.features-section svg,
+.applications-section svg {
+  transition: transform 0.2s ease;
+}
+
+.specifications-section:hover svg,
+.features-section:hover svg,
+.applications-section:hover svg {
+  transform: scale(1.1);
+}
+
+/* Animações de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.specifications-section {
+  animation: fadeInUp 0.5s ease forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.features-section {
+  animation: fadeInUp 0.5s ease forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.applications-section {
+  animation: fadeInUp 0.5s ease forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+  .specifications-grid,
+  .features-grid,
+  .applications-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .specification-item,
+  .feature-item,
+  .application-item {
+    padding: 0.75rem;
+  }
+  
+  .product-specifications {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .applications-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Estados de hover para melhor UX */
+.specification-item:hover .text-gray-900 {
+  color: #1f2937;
+}
+
+.feature-item:hover svg {
+  transform: scale(1.1);
+}
+
+.application-item:hover svg {
+  transform: scale(1.1);
+}
+
+/* Melhorias de acessibilidade */
+.specification-item:focus,
+.feature-item:focus,
+.application-item:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Estilo para texto truncado em dispositivos pequenos */
+@media (max-width: 480px) {
+  .specification-item span,
+  .feature-item span,
+  .application-item span {
+    font-size: 0.875rem;
+  }
+}
