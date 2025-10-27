@@ -13,7 +13,7 @@ export class WhatsappButtonComponent {
   phoneNumber = '5511999999999'; // Formato: código do país + DDD + número
   
   // Mensagem padrão (opcional)
-  defaultMessage = 'Olá! Gostaria de saber mais sobre os cursos da EmbaClass.';
+  defaultMessage = 'Olá! Gostaria de solicitar um orçamento e saber mais sobre as embalagens da EmbaClass.';
 
   openWhatsApp() {
     const message = encodeURIComponent(this.defaultMessage);

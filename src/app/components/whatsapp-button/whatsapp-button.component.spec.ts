@@ -26,7 +26,7 @@ describe('WhatsappButtonComponent', () => {
   });
 
   it('should have default message', () => {
-    expect(component.defaultMessage).toBe('Olá! Gostaria de saber mais sobre os cursos da EmbaClass.');
+    expect(component.defaultMessage).toBe('Olá! Gostaria de solicitar um orçamento e saber mais sobre as embalagens da EmbaClass.');
   });
 
   it('should open WhatsApp when button is clicked', () => {
