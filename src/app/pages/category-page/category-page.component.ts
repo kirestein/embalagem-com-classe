@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { HeaderComponent } from '../../components/header/header.component';
 import { WhatsappButtonComponent } from '../../components/whatsapp-button/whatsapp-button.component';
-import { ProductGridComponent } from '../../components/product-grid/product-grid.component';
+
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { ProductsService } from '../../services/products.service';
 import { ProductCategory, Product } from '../../models/product.model';
@@ -16,7 +16,6 @@ import { ProductCategory, Product } from '../../models/product.model';
     CommonModule,
     HeaderComponent,
     WhatsappButtonComponent,
-    ProductGridComponent,
     ProductCardComponent
   ],
   templateUrl: './category-page.component.html',
