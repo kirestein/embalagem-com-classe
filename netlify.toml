@@ -1,5 +1,5 @@
 [build]
-  publish = "dist/embaclass"
+  publish = "dist/embaclass/browser"
   command = "npm ci --legacy-peer-deps && npm run build:netlify"
 
 [build.environment]

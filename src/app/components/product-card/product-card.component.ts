@@ -15,6 +15,7 @@ import { Product } from '../../models/product.model';
 export class ProductCardComponent {
   @Input() product!: Product;
   @Input() showCategory: boolean = true;
+  @Input() expandable: boolean = false;
 
 
   onImageError(event: any) {
